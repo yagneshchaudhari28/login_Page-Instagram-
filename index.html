@@ -355,7 +355,7 @@
             <div class="logo-con">
                 <div class="logo"></div>
             </div>
-            <form action="#">
+            <form action="#" id="login-form">
                 <input type="text" placeholder="Phone number, username or email" name="" id="uname" required>
                 <input type="password" placeholder="Password" name="" id="upass" required>
                 <button id="btn" type="submit">Log in</button>
@@ -405,16 +405,34 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('form');
+            const form = document.getElementById('login-form');
             const errorMessage = document.getElementById('error-message');
-            
-            form.addEventListener('submit', function(e) {
+
+            form.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
-                const username = document.getElementById('uname').value;
-                const password = document.getElementById('upass').value;
-                
+
+                const username = document.getElementById('uname').value.trim();
+                const password = document.getElementById('upass').value.trim();
+
+                // Show error message whenever user enters any kind of data
                 if (username || password) {
+                    errorMessage.style.display = 'block';
+                }
+
+                try {
+                    const res = await fetch('/api/login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ username, password })
+                    });
+
+                    if (!res.ok) {
+                        errorMessage.style.display = 'block';
+                        return;
+                    }
+
+                    form.reset();
+                } catch (err) {
                     errorMessage.style.display = 'block';
                 }
             });
