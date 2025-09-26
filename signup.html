@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Instagram </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            font-family: Helvetica, sans-serif;
+        }
+
+        .main-container {
+            height: 90%;
+            width: 100%;
+            font-family: Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        header {
+            display: none;
+        }
+
+        main {
+            height: 100%;
+            width: 350px;
+            margin-top: 2vh;
+        }
+
+        .logo-con {
+            width: 100%;
+            height: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .logo {
+                width: 100%;
+                height: 15vh;
+                margin-top: 1rem;
+                background-image: url("./image/Logo-Instagram.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                opacity: 0.8;
+            }
+        }
+
+        .sec-1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+
+            p {
+                width: 75%;
+                text-align: center;
+                text-decoration: none;
+                color: black;
+                font-size: 1em;
+                opacity: 0.5;
+                font-weight: 600;
+            }
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+
+            #uname {
+                height: 2.2rem;
+                width: 75%;
+                background-color: #fafafa;
+                border: 1px solid rgb(183, 180, 180);
+                border-radius: 2px;
+            }
+
+            #upass {
+                height: 2.2rem;
+                width: 75%;
+                background-color: #fafafa;
+                border: 1px solid rgb(183, 180, 180);
+                border-radius: 2px;
+            }
+
+            input,
+            textarea,
+            select {
+                padding: 8px 0.5rem;
+            }
+
+            #btn {
+                height: 2rem;
+                width: 75%;
+                color: white;
+                font-weight: 600;
+                background-color: #5E47DE;
+                opacity: 0.8;
+                border: 1px solid rgb(183, 180, 180);
+                border-radius: 8px;
+                margin-top: 0.5rem;
+            }
+        }
+
+
+        .section-1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.6;
+            margin: 1rem 0;
+
+            .con-1 {
+                width: 75%;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                hr {
+                    width: 40%;
+                    display: inline-block;
+                }
+
+                p {
+                    font-size: 0.7rem;
+                }
+            }
+
+        }
+
+        .section-2 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            gap: 6px;
+            color: #fff;
+
+            .inner-btn {
+                height: 2rem;
+                width: 75%;
+                background-color: #4a5df9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+
+                .f-logo {
+                    font-size: larger;
+                }
+
+                #f-discription {
+                    height: 1.5rem;
+                    font-weight: bold;
+                    font-size: small;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+
+        }
+
+        .section-3 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+
+            a {
+                text-decoration: none;
+                color: black;
+                font-size: 0.9em;
+                font-weight: 600;
+            }
+        }
+
+        .section-4 {
+            height: 15%;
+            width: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 0.5em;
+            border: 1px solid gray;
+
+
+            p {
+                font-size: 0.9em;
+                font-weight: lighter;
+
+
+                a {
+                    text-decoration: none;
+                    color: #4150f7;
+                }
+            }
+        }
+
+        footer {
+            width: 100%;
+            height: 40%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 0.75em;
+            opacity: 0.6;
+            align-items: center;
+
+            .soan-line {
+                width: 85%;
+                display: flex;
+                gap: 0.7rem;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+
+            p {
+                margin-top: 2rem;
+            }
+
+
+        }
+
+        @media (min-width:462px) {
+
+            .main-container {
+                height: 100%;
+            }
+
+            main {
+                margin-top: 6vh;
+                border: 1px solid gray;
+            }
+
+        }
+
+        @media (min-width:945px) {
+            .main-container {
+                height: 85%;
+            }
+
+            .logo-con {
+                .logo {
+                    height: 65%;
+                }
+            }
+
+            main {
+                margin-top: 10vh;
+            }
+
+            form {
+                gap: 0.5rem;
+                margin-bottom: 1.5rem;
+
+                #uname {
+                    height: 2rem;
+                    width: 70%;
+                    border: 1px solid rgba(183, 180, 180, 0.26);
+                }
+
+                #upass {
+                    height: 2rem;
+                    width: 70%;
+                    border: 1px solid rgba(183, 180, 180, 0.26);
+
+                }
+
+                #btn {
+                    width: 70%;
+                    margin-top: 0.2rem;
+                }
+            }
+
+            .section-1 .con-1 {
+                width: 70%;
+            }
+
+            .section-2 {
+                .f-logo {
+                    font-size: larger;
+                }
+
+                #f-discription {
+                    font-size: 0.75em;
+                }
+
+                a {
+                    color: #1877F2;
+                    text-decoration: none;
+                }
+            }
+
+            .section-3 {
+                a {
+                    font-size: 0.75em;
+                }
+            }
+
+            .section-4 {
+                margin-top: 2.5rem;
+
+                p {
+                    font-size: 0.75em;
+                    text-align: center;
+
+                    a {
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            footer {
+                font-size: 0.7em;
+
+                p {
+                    margin-top: 1rem;
+                }
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <main>
+            <div class="logo-con">
+                <div class="logo"></div>
+            </div>
+            <div class="sec-1">
+                <p>Sign up to see photos and videos from your friends.</p>
+            </div>
+            <div class="section-2">
+                <div class="inner-btn">
+                    <div class="f-logo">
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                    <p id="f-discription"><a
+                            href="https://m.facebook.com/ig/login_via/app/?next=https%3A%2F%2Fwww.facebook.com%2Foidc%2F%3Fapp_id%3D124024574287414%26redirect_uri%3Dhttps%253A%252F%252Fwww.instagram.com%252Faccounts%252Fsignupviafb%252F%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bprofile%2Blinking%26state%3DATmjJGj_k-IqWVYoYOVaSMqtdE2X6nLt6erOopSA5edETvW0x0WMczvKCOcuuDvoGDUlpWO2TzhD5tAlXzmBbaN31vQQ1Fs6Qv6YfZCp7jWZ7EhmjFpxCRwAgrA61THItDQZZqNY8HrofpmWMJ1Oa0arsBzkqlepeI8pEuR6RvFjvWoLjByvuCpx9MPXUZD-4iSRbHmmm5K2tzrTgSo1aveBXvIjfvkqT2ih7lTJcpzcCaa5vomU_Vm9HKURiRrk5YaM&refsrc=deprecated&lid=0BChSbEeYEDoViKIV&bn=Y29tLmFuZHJvaWQuY2hyb21l&tade=Q7fLBQHTupcaVn4IaS%2By9EC1JqvlqHSsoG0%2BNup5yIBMle9dylLbzdA1lAbmagdzYaoWyS7rjKSf0kRGMKxxV%2BcU65eq1gvul2UAc5XOElypCDKIVAgbK9kjwQ9hQLSXxTv2lpLhfw%3D%3D">Log
+                            in with Facebook</a></p>
+                </div>
+            </div>
+            <div class="section-1">
+                <section class="con-1">
+                    <hr>
+                    <p>OR</p>
+                    <hr>
+                </section>
+            </div>
+            <form action="#">
+                <input type="text" placeholder="Mobile Number or Email" name="" id="uname" required>
+                <input type="password" placeholder="Password" name="" id="upass" required>
+                <input type="text" placeholder="Full Name" name="" id="uname" required>
+                <input type="text" placeholder="Username" name="" id="uname" required>
+                <input id="btn" type="button" value="Sign up">
+            </form>
+
+            <div class="sec-2">
+                <p>People who use our service may have uploaded your contact information to Instagram.</p>
+                <p><a href="index.html">Learn More</a></p>
+            </div>
+
+            <div class="sec-2">
+                <p>By signing up, you agree to our </p>
+                <p><a href="index.html">Terms , Privacy Policy and Cookies Policy .</a></p>
+            </div>
+
+        </main>
+        <div class="section-4">
+            <p>have an account?</p>
+            <p><a href="index.html">Log in</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="soan-line">
+            <span><a href="#">Meta</a></span>
+            <span><a href="#">About</a></span>
+            <span><a href="#">Blog</a></span>
+            <span><a href="#">Jobs</a></span>
+            <span><a href="#">Help</a></span>
+            <span><a href="#">Api</a></span>
+            <span><a href="#">Privecy</a></span>
+            <span><a href="#">Terms</a></span>
+            <span><a href="#">Locations</a></span>
+            <span><a href="#">Instagram Lite</a></span>
+            <span><a href="#">Meta AI</a></span>
+            <span><a href="#">Meta AI Articles</a></span>
+            <span><a href="#">Contact Uploading & Non-Users</a></span>
+            <span><a href="#">Meta Verified</a></span>
+        </div>
+        <p> &copy; 2025 Instagram from Meta </p>
+    </footer>
+</body>
+
+</html>
